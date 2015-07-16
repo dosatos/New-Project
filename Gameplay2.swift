@@ -38,14 +38,27 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
     var isCatching: Bool = false
     
     //Fish
-    var prevPosition: CGFloat = 500
-    var nextPosition: CGFloat!
+    var prevTopPosition: CGFloat = 500
+    var nextTopPosition: CGFloat!
 
+    var prevMiddlePosition: CGFloat = 500
+    var nextMiddlePosition: CGFloat!
+    
+        //middle fish grid
+    
+    var numberOfRows = 10
+    var numberOfEmptyRows = 4
+    var minimumDistanceBetweenFishes = 10
+    var chanceOfTwoFishInARow = 0.3
+
+    var prevBottomPosition: CGFloat = 500
+    var nextBottomPosition: CGFloat!
+    
     var minFishLevel: CGFloat = 40
     var middleBottomBorder: CGFloat = 70
-    var topMiddleBorder: CGFloat = 150
+    var centerBorder: CGFloat = 125
+    var topMiddleBorder: CGFloat = 180
     var maxFishLevel: CGFloat = 190
-
     var fishArray: [CCSprite!] = []
     
     func didLoadFromCCB() {
@@ -54,40 +67,6 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         userInteractionEnabled = true
         waterArray.append(water1)
         waterArray.append(water2)
-    }
-    
-    func topLevelFish() {
-        let fish = CCBReader.load("Fish") as! Fish
-        let randomY = fish.randomPositionY(min: topMiddleBorder, max: maxFishLevel)
-        let randomX = CGFloat(50) + CGFloat(arc4random_uniform(150))
-        nextPosition = prevPosition + randomX
-        fish.position = ccp(nextPosition, randomY)
-        prevPosition = fish.position.x // for the next fish
-        gamePhysicsNode.addChild(fish)
-        fishArray.append(fish)
-    }
-    
-    func middleLevelFish() {
-        let fish = CCBReader.load("Fish") as! Fish
-        let randomY = fish.randomPositionY(min: middleBottomBorder, max: topMiddleBorder)
-        let randomX = CGFloat(50) + CGFloat(arc4random_uniform(150))
-        nextPosition = prevPosition + randomX
-        fish.position = ccp(nextPosition, randomY)
-        prevPosition = fish.position.x // for the next fish
-        gamePhysicsNode.addChild(fish)
-        fishArray.append(fish)
-    }
-    
-    func bottomLevelFish() {
-        let fish = CCBReader.load("Fish") as! Fish
-        let randomY = fish.randomPositionY(min: minFishLevel, max: middleBottomBorder)
-        let randomX = CGFloat(50) + CGFloat(arc4random_uniform(150))
-        nextPosition = prevPosition + randomX
-        fish.position = ccp(nextPosition, randomY)
-        prevPosition = fish.position.x // for the next fish
-        gamePhysicsNode.addChild(fish)
-        fishArray.append(fish)
-
     }
     
     func spawnFish() {
@@ -101,7 +80,58 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         }
     }
     
-    // TODO: add to update method changing the position, and add to touchBegan.location the change of the vectors triggered in update method
+    func topLevelFish() {
+        let fish = CCBReader.load("FishTop") as! FishTop
+        let randomY = fish.randomPositionY(min: topMiddleBorder + 5, max: maxFishLevel)
+        let randomX = CGFloat(45) + CGFloat(arc4random_uniform(150))
+        nextTopPosition = prevTopPosition + randomX
+        fish.position = ccp(nextTopPosition, randomY)
+        prevTopPosition = fish.position.x // for the next fish
+        fish.points = 5
+        fish.scale = 0.5
+        gamePhysicsNode.addChild(fish)
+        fishArray.append(fish)
+    }
+    
+    func middleLevelFish() {
+        let fish = CCBReader.load("FishMiddle") as! FishMiddle
+        let randomY = fish.randomPositionY(min: centerBorder, max: topMiddleBorder)
+        let randomX = CGFloat(50) + CGFloat(arc4random_uniform(125))
+        nextMiddlePosition = prevMiddlePosition + randomX
+        fish.position = ccp(nextMiddlePosition, randomY)
+        prevMiddlePosition = fish.position.x // for the next fish
+        fish.points = 10
+        fish.scale = 0.7
+        gamePhysicsNode.addChild(fish)
+        fishArray.append(fish)
+        
+        let fish2 = CCBReader.load("FishMiddle") as! FishMiddle
+        let randomY2 = fish2.randomPositionY(min: middleBottomBorder, max: centerBorder)
+//        let randomX2 = randomX
+//        nextMiddlePosition = prevMiddlePosition + randomX2
+        fish2.position = ccp(fish.position.x, randomY2)
+//        prevMiddlePosition = fish2.position.x // for the next fish
+        fish2.points = 10
+        fish2.scale = 0.7
+        gamePhysicsNode.addChild(fish2)
+        fishArray.append(fish2)
+    }
+    
+    func bottomLevelFish() {
+        let fish = CCBReader.load("FishBottom") as! FishBottom
+        let randomY = fish.randomPositionY(min: minFishLevel, max: middleBottomBorder - 5)
+        let randomX = CGFloat(200) + CGFloat(arc4random_uniform(20))
+        nextBottomPosition = prevBottomPosition + randomX
+        fish.position = ccp(nextBottomPosition, randomY)
+        prevBottomPosition = fish.position.x // for the next fish
+        fish.points = 50
+        fish.scale = 0.7
+        gamePhysicsNode.addChild(fish)
+        fishArray.append(fish)
+
+    }
+    
+
     
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         let screenSize: CGRect = UIScreen.mainScreen().bounds
@@ -140,14 +170,21 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         
         gamePhysicsNode.position.x -= scrollSpeed
         character.position.x += scrollSpeed
+        
+        
         if isCatching == false {
             character.position.y += divingSpeed
         } else {
             if character.position.y <= characterLevel {
-                character.position.y += defaultDivingSpeed
-            }
+                character.position.y += defaultDivingSpeed // return to initial stage
             }
         }
+        
+        if character.position.y >= characterLevel {
+            isCatching = false
+        }
+        
+        
         
         //        for water in waterArray {
         //            water.position.x = water.position.x - scrollSpeed * CGFloat(delta)
@@ -171,7 +208,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
             }
         }
         
-        timeLeft -= Float(delta)
+//        timeLeft -= Float(delta / 2)
         if timeLeft <= 0 {
             gameOver()
         }
@@ -183,10 +220,33 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
     }
     
     
-    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, fish: Fish!, character: Character!) -> Bool {
-        fish.removeFromParent()
-        timeLeft += 0.65
-        points++
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, fishTop: Fish!, character: Character!) -> Bool {
+        fishTop.removeFromParent()
+        let bonusTime: Float = Float(fishTop.points/CGFloat(60)) // 25 points - 2.5 minute
+        timeLeft += bonusTime
+        points += NSInteger(fishTop.points)
+        scoreLabel.string = String(points)
+        isCatching = true
+        
+        return true
+    }
+    
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, fishMiddle: Fish!, character: Character!) -> Bool {
+        fishMiddle.removeFromParent()
+        let bonusTime: Float = Float(fishMiddle.points/CGFloat(60)) // 25 points - 2.5 minute
+        timeLeft += bonusTime
+        points += NSInteger(fishMiddle.points)
+        scoreLabel.string = String(points)
+        isCatching = true
+        
+        return true
+    }
+    
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, fishBottom: Fish!, character: Character!) -> Bool {
+        fishBottom.removeFromParent()
+        let bonusTime: Float = Float(fishBottom.points/CGFloat(60)) // 25 points - 2.5 minute
+        timeLeft += bonusTime
+        points += NSInteger(fishBottom.points)
         scoreLabel.string = String(points)
         isCatching = true
         

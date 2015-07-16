@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>2</integer>
+	<integer>1</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -35,12 +35,46 @@
 	<false/>
 	<key>nodeGraph</key>
 	<dict>
+		<key>animatedProperties</key>
+		<dict>
+			<key>0</key>
+			<dict>
+				<key>spriteFrame</key>
+				<dict>
+					<key>keyframes</key>
+					<array>
+						<dict>
+							<key>easing</key>
+							<dict>
+								<key>type</key>
+								<integer>0</integer>
+							</dict>
+							<key>name</key>
+							<string>spriteFrame</string>
+							<key>time</key>
+							<real>0.0</real>
+							<key>type</key>
+							<integer>7</integer>
+							<key>value</key>
+							<array>
+								<string>ccbResources/ccbSliderHandle.png</string>
+								<string>Use regular file</string>
+							</array>
+						</dict>
+					</array>
+					<key>name</key>
+					<string>spriteFrame</string>
+					<key>type</key>
+					<integer>7</integer>
+				</dict>
+			</dict>
+		</dict>
 		<key>baseClass</key>
 		<string>CCSprite</string>
 		<key>children</key>
 		<array/>
 		<key>customClass</key>
-		<string>Character</string>
+		<string>FishTop</string>
 		<key>displayName</key>
 		<string>CCSprite</string>
 		<key>memberVarAssignmentName</key>
@@ -60,13 +94,13 @@
 			<key>collisionMask</key>
 			<array/>
 			<key>collisionType</key>
-			<string>character</string>
+			<string>fishTop</string>
 			<key>cornerRadius</key>
 			<real>12</real>
 			<key>density</key>
 			<real>1</real>
 			<key>dynamic</key>
-			<true/>
+			<false/>
 			<key>elasticity</key>
 			<real>0.30000001192092896</real>
 			<key>friction</key>
@@ -74,8 +108,8 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>16</real>
-					<real>16</real>
+					<real>12</real>
+					<real>12</real>
 				</array>
 			</array>
 			<key>polygons</key>
@@ -130,6 +164,11 @@
 				</array>
 			</dict>
 			<dict>
+				<key>baseValue</key>
+				<array>
+					<string></string>
+					<string>Use regular file</string>
+				</array>
 				<key>name</key>
 				<string>spriteFrame</string>
 				<key>type</key>
@@ -137,7 +176,7 @@
 				<key>value</key>
 				<array>
 					<string></string>
-					<string>assets/fishing-hook@4x.png</string>
+					<string>ccbResources/ccbSliderHandle.png</string>
 				</array>
 			</dict>
 			<dict>
@@ -174,6 +213,8 @@
 			</dict>
 		</array>
 		<key>selected</key>
+		<true/>
+		<key>seqExpanded</key>
 		<true/>
 	</dict>
 	<key>notes</key>

@@ -10,6 +10,8 @@ import Foundation
 
 class Fish: CCSprite {
     
+    var points: CGFloat!!
+    
     func randomPositionY(min minLevel: CGFloat, max maxLevel: CGFloat) -> CGFloat {
         return minLevel + CGFloat(arc4random_uniform(UInt32(maxLevel - minLevel)))
     }
@@ -17,4 +19,16 @@ class Fish: CCSprite {
     func didLoadFromCCB() {
         self.physicsBody.sensor = true
     }
+}
+
+class FishTop: Fish {
+    
+}
+
+class FishBottom: Fish {
+    
+}
+
+class FishMiddle: Fish {
+    
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Fish: CCSprite {
+class Fish: CCNode {
     
     var points: CGFloat!!
     

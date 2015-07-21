@@ -12,6 +12,17 @@ class Fish: CCNode {
     
     var points: CGFloat!!
     
+    var numberOfColumns: CGFloat!
+    var numberOfRows: CGFloat!
+    
+    var rowSize: CGFloat!
+    var columnSize: CGFloat!
+    
+    var upperBorder: CGFloat!
+    var lowerBorder: CGFloat!
+    
+    var moveDistance: CGFloat!
+    
     func randomPositionY(min minLevel: CGFloat, max maxLevel: CGFloat) -> CGFloat {
         return minLevel + CGFloat(arc4random_uniform(UInt32(maxLevel - minLevel)))
     }
@@ -19,16 +30,22 @@ class Fish: CCNode {
     func didLoadFromCCB() {
         self.physicsBody.sensor = true
     }
-}
-
-class FishTop: Fish {
+    
+//    func moveForward() {
+//        position.x += fieldWidth
+//    }
+    
     
 }
 
-class FishBottom: Fish {
+class FishLevelOne: Fish {
     
 }
 
-class FishMiddle: Fish {
-    
+class FishLevelTwo: Fish {
+
+}
+
+class FishMinLevel: Fish {
+
 }

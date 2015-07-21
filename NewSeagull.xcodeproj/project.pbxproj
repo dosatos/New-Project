@@ -447,10 +447,10 @@
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				7A046D7519E84C36004C4763 /* Gameplay.swift */,
 				854C18821B547D2D004E2326 /* Gameplay2.swift */,
+				8561AEE71B521FC800D558E2 /* Fish.swift */,
 				854C18801B54767A004E2326 /* Character.swift */,
 				854C186A1B54696A004E2326 /* MainScene.swift */,
 				85C332471B509831005A363D /* GameStatistics.swift */,
-				8561AEE71B521FC800D558E2 /* Fish.swift */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 			);
 			name = Source;

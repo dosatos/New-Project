@@ -116,7 +116,7 @@
 								<string>Text</string>
 								<key>value</key>
 								<array>
-									<string>1</string>
+									<string>-25</string>
 									<false/>
 								</array>
 							</dict>
@@ -252,8 +252,6 @@
 								</array>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -332,9 +330,9 @@
 						<string>Color3</string>
 						<key>value</key>
 						<array>
-							<real>0.9529411792755127</real>
-							<real>0.52549022436141968</real>
-							<real>0.18823529779911041</real>
+							<real>0.0</real>
+							<real>0.0</real>
+							<real>0.0</real>
 							<real>1</real>
 						</array>
 					</dict>
@@ -350,7 +348,7 @@
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string>FishLevelTwo</string>
+		<string>FishLevelDead</string>
 		<key>displayName</key>
 		<string>CCNode</string>
 		<key>memberVarAssignmentName</key>
@@ -370,7 +368,7 @@
 			<key>collisionMask</key>
 			<array/>
 			<key>collisionType</key>
-			<string>fishLevelTwo</string>
+			<string>fishLevelDead</string>
 			<key>cornerRadius</key>
 			<real>0.0</real>
 			<key>density</key>

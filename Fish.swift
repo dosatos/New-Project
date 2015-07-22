@@ -10,7 +10,7 @@ import Foundation
 
 class Fish: CCNode {
     
-    var points: CGFloat!!
+    var points: CGFloat!
     
     var numberOfColumns: CGFloat!
     var numberOfRows: CGFloat!
@@ -43,9 +43,13 @@ class FishLevelOne: Fish {
 }
 
 class FishLevelTwo: Fish {
-
+    
 }
 
 class FishMinLevel: Fish {
 
+}
+
+class FishLevelDead: Fish {
+    
 }

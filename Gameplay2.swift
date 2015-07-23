@@ -297,7 +297,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         var n: AnyObject = scene.children[0]
         var image = screenShotWithStartNode(n as! CCNode)
         
-        let sharedText = "Share text"
+        let sharedText = "My score is \(points) points. Can anyone beat me? :))"
         let itemsToShare = [image, sharedText]
         
         var excludedActivities = [UIActivityTypePrint, UIActivityTypeCopyToPasteboard,

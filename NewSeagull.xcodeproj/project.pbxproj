@@ -50,6 +50,7 @@
 		8561AEE81B521FC800D558E2 /* Fish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8561AEE71B521FC800D558E2 /* Fish.swift */; };
 		85B1F11A1B5DCE250072BB92 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B1F1191B5DCE250072BB92 /* Game.swift */; };
 		85C332481B509831005A363D /* GameStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C332471B509831005A363D /* GameStatistics.swift */; };
+		85EC67AC1B6055F500548FAD /* Multiplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC67AB1B6055F500548FAD /* Multiplayer.swift */; };
 		927F61A5196C771E000F43EF /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3517B978D7009739AE /* OpenAL.framework */; };
 		927F61A9196C771E000F43EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3D17B978D7009739AE /* Foundation.framework */; };
 		927F61AA196C771E000F43EF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3F17B978D7009739AE /* CoreGraphics.framework */; };
@@ -184,6 +185,7 @@
 		8561AEE71B521FC800D558E2 /* Fish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fish.swift; sourceTree = "<group>"; };
 		85B1F1191B5DCE250072BB92 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		85C332471B509831005A363D /* GameStatistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStatistics.swift; sourceTree = "<group>"; };
+		85EC67AB1B6055F500548FAD /* Multiplayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Multiplayer.swift; sourceTree = "<group>"; };
 		927F61BF196C771E000F43EF /* NewSeagull Android.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NewSeagull Android.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				7A40362019DDEF0D007B6E8F /* Platforms */,
+				85EC67AB1B6055F500548FAD /* Multiplayer.swift */,
 				7A046D7519E84C36004C4763 /* Gameplay.swift */,
 				854C18821B547D2D004E2326 /* Gameplay2.swift */,
 				85B1F1191B5DCE250072BB92 /* Game.swift */,
@@ -839,6 +842,7 @@
 				854C18831B547D2D004E2326 /* Gameplay2.swift in Sources */,
 				854C186B1B54696A004E2326 /* MainScene.swift in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
+				85EC67AC1B6055F500548FAD /* Multiplayer.swift in Sources */,
 				85C332481B509831005A363D /* GameStatistics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

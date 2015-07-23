@@ -2448,7 +2448,7 @@ Down</string>
 										<string>Block</string>
 										<key>value</key>
 										<array>
-											<string>twitterButtonPushed</string>
+											<string>shareButtonTapped</string>
 											<integer>1</integer>
 										</array>
 									</dict>
@@ -2703,8 +2703,6 @@ Down</string>
 										</array>
 									</dict>
 								</array>
-								<key>selected</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>UUID</key>
@@ -3913,6 +3911,14 @@ Even heroes need help</string>
 				<array>
 					<dict>
 						<key>name</key>
+						<string>visible</string>
+						<key>type</key>
+						<string>Check</string>
+						<key>value</key>
+						<false/>
+					</dict>
+					<dict>
+						<key>name</key>
 						<string>name</string>
 						<key>type</key>
 						<string>StringSimple</string>
@@ -3992,6 +3998,8 @@ Even heroes need help</string>
 						<real>1</real>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
